@@ -1,0 +1,22 @@
+public class Main {
+    public static void main(String[] args) {
+        int N = 12345;
+        int reversed = firstTwo(N);
+        System.out.println(reversed);  // Output: 32
+    }
+
+    public static int firstTwo(int N) {
+        int reversed = 0;
+
+        while (N > 99) {
+            N = N / 10;
+        }
+
+        reversed = (reversed * 10) + (N % 10);
+        N = N / 10;
+        reversed = (reversed * 10) + (N % 10);
+
+        return reversed;
+    }
+}
+// output is: 21

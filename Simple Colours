@@ -1,0 +1,59 @@
+Problem Statement
+Taro loves colours. Today she is interested in painting bricks. N bricks are arranged in a line. She needs to paint them using K colours. She does not want two adjacent bricks to be painted in same colour. Can you help her find the number of ways she can colour the given N bricks.
+
+As the answer can be large print it modulo 1000000007.
+
+Property: (a*b)%c = ((a%c)*(b%c))%c.
+Input
+The first and the only line of input contains 2 integers N and K.
+
+Constraints
+1 <= N <= 1000
+2 <= K <= 1000
+Output
+Output a single integer, the number of ways in which she can colour the bricks modulo 1000000007.
+Example
+Sample Input
+2 2
+
+Sample Output
+2
+
+Explanation: Let the colours be 1 and 2. The ways of colouring the bricks are "1 2" or "2 1".
+
+Sample Input:
+1 10
+
+Sample Output:
+10
+******************** code *************************
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+
+class Main {
+    static final int MOD=1000000007;
+    public static void main (String[] args) {
+       Scanner sc = new Scanner(System.in);
+        long N = sc.nextLong();
+        long K = sc.nextLong();
+        System.out.println(getcolor(N,K));
+        
+        }
+        public static long getcolor(long brick,long color){
+            return (color %MOD*modpower(color-1,brick-1))%MOD;
+        }
+        public static long modpower(long x,long n){
+            long ans=1;
+            while(n>0){
+                if(n%2==1){
+                    ans=(ans*x)%MOD;
+                }
+                x=(x*x)%MOD;
+                n=n/2;
+            }
+            return ans;
+        }
+}

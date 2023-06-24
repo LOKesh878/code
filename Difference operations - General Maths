@@ -1,0 +1,51 @@
+Problem Statement
+You are given an array a consisting of n positive integers.
+
+You are allowed to perform this operation any number of times (possibly, zero):
+
+choose an index i (1 <= i < n), and change ai to ai − ai-1.
+
+Is it possible to make ai = 0 for all 1 <= i < n?
+Input
+First line contains n. Next line contains n space separated integers.
+
+Constraints
+1 <= n <= 105
+0 <= a[i] <= 109
+Output
+print "YES" if the required condition can be achieved , otherwise print "NO".
+**************************** code ***************************
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+       Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();  // Size of array 'a'
+
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = scanner.nextInt();
+        }
+
+       
+
+       
+
+        boolean isPossible = true;
+        for (int i = 1; i < n; i++) {
+            if (a[i]%a[0] != 0) {
+                isPossible = false;
+                
+            }
+        }
+
+        if (isPossible) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}

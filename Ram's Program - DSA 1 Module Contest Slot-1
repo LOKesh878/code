@@ -1,0 +1,56 @@
+Problem Statement
+Ram is developing a program to simulate a game played by the citizens of Newton Land. In this game, the players arrange N blocks with integers from 0 to 9 to form different numbers. The blocks are randomly arranged, but the first block is never a 0. The players then read the number in reverse order and check if it is the same as the original number. If it is, the player wins. Such numbers are called NewtonNumber.
+
+Ram happens to see this game and wants to simulate the same on the computer. As the first step he wants to take input from the user and check if the number is a NewtonNumber and declare if the user wins or not.
+Input
+The first line of the input contains a single integer T, denoting the number of test cases.
+Each line of the test case contains a number that is formed using N blocks.
+
+Constraints
+1 ≤ T ≤ 20
+1 ≤ N ≤ 2x105
+Output
+For each test case print without quotes, "wins" if the number is a NewtonNumber otherwise "loses" if not.
+Example
+Sample Input
+2
+33
+210
+Sample Output
+wins
+loses
+Explanation
+Test case 1: Here the number is made using two blocks, which when read in the reversed manner also gives the same number, Hence it's a NewtonNumber. so the user wins.
+Test case 2: Here the number is made using three blocks, which when read in a reversed manner doesn't give the same number 210 rather it's 012 i.e. 12, and 210 ≠ 12, so it's not a NewtonNumber hence loses.
+******************* code **************************
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while( t --> 0){
+            String str=sc.next(); 
+            boolean iswinning=true;
+            int l=0,r=str.length()-1;
+            while(l < r){
+                if(str.charAt(l) != str.charAt(r)){
+                    iswinning =false;
+                    break;
+                }
+                l++;
+                r--;
+
+            }
+            if(iswinning){
+                System.out.println("wins");
+            }
+            else{
+                System.out.println("loses");
+            }
+        }
+    }
+}

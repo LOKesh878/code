@@ -1,0 +1,44 @@
+Problem Statement
+Generate a sequence of numbers starting with N, without using loops. The sequence is generated as follows.
+If A[i] is greater than 0, A[i+1] = A[i] - 5, and continue this operation until A[i] becomes less than or equal to 0. and then, A[i+1] = A[i] + 5, and continue this operation until A[i] becomes equal to N.
+Input
+The first line of input contains a single integer N.
+
+Constraints:-
+1 ≤ N ≤ 1000
+Output
+Print the pattern.
+Example
+Sample Input 1:
+16
+
+Sample Output 1:
+16 11 6 1 -4 1 6 11 16
+
+Explanation 1:
+We basically first reduce 5 one by one until we reach a negative or 0. After we reach 0 or negative, we one by one add 5 until we reach N.
+************************* CODE ********************
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+     Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        
+        generateSequence(N);
+    }
+
+    public static void generateSequence(int num) {
+        if (num <= 0) {
+            System.out.print(num + " ");
+            return;
+        }
+        
+        System.out.print(num + " ");
+        generateSequence(num - 5);
+        System.out.print(num + " ");
+    }
+}

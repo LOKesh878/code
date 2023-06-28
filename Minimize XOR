@@ -1,0 +1,64 @@
+Problem Statement
+Given an integer array A of N integers, find the pair of integers in the array which have minimum XOR value. Report the minimum XOR value.
+Input
+First line denotes N, the size of the array.
+Next line denotes N space-separated array elements.
+
+Constraints:
+2 <= N <= 100000
+0 <= A[i] <= 10^7
+Output
+Print a single integer denoting minimum xor value
+Example
+Sample Input
+4
+0 2 5 7
+
+Sample Output
+2
+
+Explanation:
+0 xor 2 = 2
+
+Sample Input
+4
+0 4 7 9
+
+Sample Output
+3
+**************************** code *********************
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+   public static int findMinimumXOR(int N, int[] A) {
+        Arrays.sort(A); // Sort the array in ascending order
+        int min_xor = Integer.MAX_VALUE;
+
+        for (int i = 0; i < N - 1; i++) {
+            int xor_value = A[i] ^ A[i + 1];
+            min_xor = Math.min(min_xor, xor_value);
+        }
+
+        return min_xor;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read input value of N, the size of the array
+        int N = scanner.nextInt();
+
+        // Read input array elements
+        int[] A = new int[N];
+        for (int i = 0; i < N; i++) {
+            A[i] = scanner.nextInt();
+        }
+
+        // Call the function and print the result
+        int result = findMinimumXOR(N, A);
+        System.out.println(result);
+    }
+  }

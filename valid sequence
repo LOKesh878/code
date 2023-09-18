@@ -1,0 +1,32 @@
+Valid Sequence (Contest)
+Given a sequence of 4 non- negative Integers, Check if the sequence is valid, A valid sequence is a sequence that can be partitioned into two sequences
+containing two numbers each and the sum both elements of both sequences should be even.
+// CODE":=
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int arr[]=new int[4];
+       int even=0;
+       int odd=0;
+       for(int i=0;i<4;i++){
+           arr[i]=sc.nextInt();
+           if(arr[i]%2==0){
+               even++;
+           }
+           else{
+               odd++;
+           }
+       }
+       if(odd%2==0){
+           System.out.println("true");
+       }
+       else{
+           System.out.println("false");
+       }
+   }
+}
